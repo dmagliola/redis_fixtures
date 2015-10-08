@@ -21,6 +21,7 @@ GEM
     builder (3.2.2)
     codeclimate-test-reporter (0.4.8)
       simplecov (>= 0.7.1, < 1.0.0)
+    connection_pool (2.2.0)
     coveralls (0.8.3)
       json (~> 1.8)
       rest-client (>= 1.6.8, < 2)
@@ -81,6 +82,7 @@ DEPENDENCIES
   appraisal
   bundler
   codeclimate-test-reporter
+  connection_pool
   coveralls
   minitest
   minitest-reporters
