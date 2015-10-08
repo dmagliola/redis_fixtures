@@ -39,4 +39,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "appraisal"
   s.add_development_dependency "coveralls"
   s.add_development_dependency "codeclimate-test-reporter"
+  s.add_development_dependency "connection_pool"
 end

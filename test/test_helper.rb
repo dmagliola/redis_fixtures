@@ -33,7 +33,35 @@ include ActiveSupport::Testing::Assertions
 require "benchmark"
 
 require "redis_fixtures"
+require "redis"
+require "connection_pool"
+
 
 # Add helper methods to use in the tests
-class MiniTest::Test
+$RedisConnectionSettings = {host: 'localhost', port: 6379, db: 2}
+
+class TestResetHelper
+  def self.reset_configuration
+    RedisFixtures.instance_variable_set(:@configuration, RedisFixtures::Configuration.new)
+    RedisFixtures.configure do |config|
+      config.connection_settings = $RedisConnectionSettings
+    end
+  end
+
+  def self.reset_fixtures_file_and_db
+    reset_configuration
+    RedisFixtures.with_redis_connection do |redis|
+      redis.flushdb
+      redis.set("string_key", "blah")
+      RedisFixtures.save_fixtures
+      redis.flushdb
+      redis.set("delete_me", "aa")
+    end
+  end
 end
+
+
+# Prepare some test data, before tests run, since we're testing a "before_setup" hook
+TestResetHelper.reset_configuration
+TestResetHelper.reset_fixtures_file_and_db
+
