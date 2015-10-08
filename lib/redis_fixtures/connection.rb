@@ -1,4 +1,7 @@
 module RedisFixtures
+  # Gets a connection to Redis using whatever method was configured,
+  # and yields it to the block passed in
+  # @return [Object] Whatever your block returned
   def self.with_redis_connection
     result = nil
     conf = RedisFixtures.configuration

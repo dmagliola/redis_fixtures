@@ -12,7 +12,7 @@ Add fixtures to your Redis database, to test the parts of your code that need Re
 
 ## Version Compatibility and Continuous Integration
 
-Tested with [Travis](https://travis-ci.org/dmagliola/redis_fixtures) using Ruby 1.9.3, 2.0, 2.1.1, 2.1.2, 2.1.3 and 2.1.5,
+Tested with [Travis](https://travis-ci.org/dmagliola/redis_fixtures) using Ruby 1.9.3, 2.0, 2.1.1 and 2.1.5,
  and against redis 3.0.0 and 3.2.1.
 
 To locally run tests do:

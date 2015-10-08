@@ -1,4 +1,5 @@
 module RedisFixtures
+  # Load the Redis fixture YAML file, into Redis, flushing the DB first
   def self.load_fixtures
     return unless File.exists?(fixture_file_path)
     commands = YAML.load_file(fixture_file_path)
