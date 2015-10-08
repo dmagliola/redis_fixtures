@@ -13,7 +13,7 @@ module RedisFixtures
                 conf.connection_proc.call :
                 Redis.new(conf.connection_settings)
       result = yield(redis)
-      redis.disconnect!
+      redis.disconnect! if redis.respond_to?(:disconnect!)
     end
     result
   end
